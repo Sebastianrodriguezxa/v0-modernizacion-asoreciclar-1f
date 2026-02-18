@@ -4,6 +4,7 @@ import { QuienesSomos } from "@/components/quienes-somos"
 import { ProblemaSocial } from "@/components/problema-social"
 import { Impacto } from "@/components/impacto"
 import { Servicios } from "@/components/servicios"
+import { ResponsabilidadSocial } from "@/components/responsabilidad-social"
 import { Transparencia } from "@/components/transparencia"
 import { Manifiesto } from "@/components/manifiesto"
 import { Contacto } from "@/components/contacto"
@@ -18,6 +19,7 @@ export default function Home() {
       <ProblemaSocial />
       <Impacto />
       <Servicios />
+      <ResponsabilidadSocial />
       <Transparencia />
       <Manifiesto />
       <Contacto />

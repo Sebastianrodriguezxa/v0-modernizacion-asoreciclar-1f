@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Nosotros", href: "#nosotros" },
   { label: "Impacto", href: "#impacto" },
   { label: "Servicios", href: "#servicios" },
+  { label: "Accion Social", href: "#responsabilidad" },
   { label: "Transparencia", href: "#transparencia" },
   { label: "Contacto", href: "#contacto" },
 ]
