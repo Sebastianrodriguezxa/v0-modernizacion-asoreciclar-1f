@@ -49,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${dmSans.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased overflow-x-hidden">
+    <html lang="es" className={`${dmSans.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased overflow-x-hidden" suppressHydrationWarning>
         {children}
         <Analytics />
       </body>
