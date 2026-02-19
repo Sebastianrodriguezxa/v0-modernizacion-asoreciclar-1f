@@ -13,6 +13,7 @@ import {
   Trash2,
   Image as ImageIcon,
   Calendar,
+  CalendarDays,
   Filter,
   Loader2,
 } from "lucide-react"
