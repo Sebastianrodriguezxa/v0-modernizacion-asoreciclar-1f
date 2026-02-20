@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 import { useInView } from "@/hooks/use-in-view"
 import { Recycle, Users, MapPin, TreePine, TrendingUp } from "lucide-react"
+import { CordobaMap } from "@/components/cordoba-map"
 
 function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0)
@@ -142,6 +143,12 @@ export function Impacto() {
             </p>
           </div>
 
+          {/* Interactive Map */}
+          <div className="mb-16">
+            <CordobaMap />
+          </div>
+
+          {/* Municipios cards below map */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {municipios.map((muni, i) => (
               <div

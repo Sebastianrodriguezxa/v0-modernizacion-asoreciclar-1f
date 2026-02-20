@@ -58,19 +58,26 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Add security headers
+  // Add security headers to all responses
   const response = NextResponse.next()
   response.headers.set("X-Content-Type-Options", "nosniff")
   response.headers.set("X-Frame-Options", "DENY")
   response.headers.set("X-XSS-Protection", "1; mode=block")
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin")
+  response.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+  response.headers.set(
+    "Strict-Transport-Security",
+    "max-age=31536000; includeSubDomains; preload"
+  )
 
   return response
 }
 
 export const config = {
   matcher: [
+    // Admin paths
     "/admin-panel/:path*",
+    // Blocked paths (honeypots)
     "/admin",
     "/admin/:path*",
     "/wp-admin",
@@ -81,5 +88,9 @@ export const config = {
     "/dashboard/:path*",
     "/panel",
     "/panel/:path*",
+    // API routes - apply security headers
+    "/api/:path*",
+    // Public pages
+    "/((?!_next/static|_next/image|favicon.ico|images/).*)",
   ],
 }

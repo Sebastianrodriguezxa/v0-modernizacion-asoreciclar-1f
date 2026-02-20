@@ -81,8 +81,8 @@ export function Contacto() {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Telefono</h4>
-                    <a href="tel:3005312462" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                      300 531 2462
+                    <a href="tel:+573005312462" className="text-muted-foreground text-sm hover:text-primary transition-colors select-text">
+                      <span>300 531 2462</span>
                     </a>
                   </div>
                 </div>
@@ -95,8 +95,8 @@ export function Contacto() {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Email / PQRS</h4>
-                    <a href="mailto:pqrs@asorecicladoresp.com" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                      pqrs@asorecicladoresp.com
+                    <a href="mailto:pqrs@asorecicladoresp.com" className="text-muted-foreground text-sm hover:text-primary transition-colors select-text">
+                      <span>pqrs@asorecicladoresp.com</span>
                     </a>
                   </div>
                 </div>
