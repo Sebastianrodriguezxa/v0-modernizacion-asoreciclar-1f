@@ -110,24 +110,24 @@ export function Impacto() {
         </div>
 
         {/* Metrics grid - maximalista large numbers */}
-        <div className={`grid grid-cols-2 lg:grid-cols-5 gap-6 mb-24 transition-all duration-1000 delay-200 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mb-16 sm:mb-24 transition-all duration-1000 delay-200 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           {metrics.map((metric, i) => (
             <div
               key={metric.label}
-              className={`relative group p-6 lg:p-8 rounded-3xl border border-border bg-card hover:border-primary/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
-                i === 0 ? "col-span-2 lg:col-span-1" : ""
+              className={`relative group p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl border border-border bg-card hover:border-primary/30 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                i === 4 ? "col-span-2 sm:col-span-1" : ""
               }`}
             >
-              <div className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-xl bg-primary/5 group-hover:bg-primary/10 transition-colors">
-                <metric.icon className="h-5 w-5 text-primary" />
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-primary/5 group-hover:bg-primary/10 transition-colors">
+                <metric.icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               </div>
-              <span className="block font-serif text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-2">
+              <span className="block font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-2 sm:mt-4 mb-1 sm:mb-2">
                 <AnimatedCounter target={metric.value} suffix={metric.suffix} />
               </span>
-              <span className="block font-bold text-foreground text-sm">{metric.label}</span>
-              <span className="block text-muted-foreground text-xs mt-1">{metric.sublabel}</span>
+              <span className="block font-bold text-foreground text-xs sm:text-sm">{metric.label}</span>
+              <span className="block text-muted-foreground text-[10px] sm:text-xs mt-1">{metric.sublabel}</span>
               {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-6 right-6 h-1 bg-primary/0 group-hover:bg-primary rounded-full transition-all duration-500" />
+              <div className="absolute bottom-0 left-4 right-4 sm:left-6 sm:right-6 h-1 bg-primary/0 group-hover:bg-primary rounded-full transition-all duration-500" />
             </div>
           ))}
         </div>
@@ -149,11 +149,11 @@ export function Impacto() {
           </div>
 
           {/* Municipios cards below map */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             {municipios.map((muni, i) => (
               <div
                 key={muni.name}
-                className="relative group overflow-hidden rounded-2xl bg-primary p-6 text-primary-foreground hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
+                className={`relative group overflow-hidden rounded-2xl bg-primary p-4 sm:p-6 text-primary-foreground hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
                 style={{ animationDelay: `${500 + i * 100}ms` }}
               >
                 <div className="absolute top-0 right-0 w-20 h-20 bg-amber-warm/10 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500" />

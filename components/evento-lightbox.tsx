@@ -54,7 +54,7 @@ export function EventoLightbox({ evento, onClose }: EventoLightboxProps) {
     setCurrentImage((prev) => (prev - 1 + images.length) % images.length)
   }, [images.length])
 
-  // Keyboard navigation
+  // Keyboard navigation and focus trap
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose()
@@ -63,6 +63,11 @@ export function EventoLightbox({ evento, onClose }: EventoLightboxProps) {
     }
     document.addEventListener("keydown", handleKey)
     document.body.style.overflow = "hidden"
+
+    // Set focus to the dialog for screen readers
+    const dialog = document.querySelector('[role="dialog"]') as HTMLElement
+    dialog?.focus()
+
     return () => {
       document.removeEventListener("keydown", handleKey)
       document.body.style.overflow = ""
@@ -87,6 +92,7 @@ export function EventoLightbox({ evento, onClose }: EventoLightboxProps) {
       role="dialog"
       aria-modal="true"
       aria-label={`Evento: ${evento.titulo}`}
+      tabIndex={-1}
     >
       <div
         className="relative w-full max-w-5xl max-h-[90vh] bg-card rounded-3xl overflow-hidden flex flex-col shadow-2xl"

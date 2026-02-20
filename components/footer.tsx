@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, ArrowUp } from "lucide-react"
+import { MapPin, Phone, Mail, ArrowUp, MessageCircle } from "lucide-react"
 
 const footerLinks = {
   organizacion: [
@@ -17,18 +17,18 @@ const footerLinks = {
     { label: "Informes de gestion", href: "#transparencia" },
     { label: "Rendicion de cuentas", href: "#transparencia" },
     { label: "PQRS", href: "mailto:pqrs@asorecicladoresp.com" },
-    { label: "Politica de privacidad", href: "#" },
+    { label: "Politica de privacidad", href: "#transparencia" },
   ],
 }
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-card pt-20 pb-8">
+    <footer className="bg-foreground text-card pt-16 sm:pt-20 pb-8" role="contentinfo">
       <div className="mx-auto max-w-7xl px-6">
         {/* Main footer grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-card/10">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 pb-12 border-b border-card/10">
           {/* Brand column */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-warm text-green-dark font-serif font-bold text-lg">
                 AR
@@ -51,8 +51,12 @@ export function Footer() {
                 <span>300 531 2462</span>
               </a>
               <a href="mailto:pqrs@asorecicladoresp.com" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm select-text">
-                <Mail className="h-4 w-4 flex-shrink-0" />
+                <Mail className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
                 <span>pqrs@asorecicladoresp.com</span>
+              </a>
+              <a href="https://wa.me/573005312462?text=Hola%2C%20me%20gustaria%20obtener%20mas%20informacion%20sobre%20ASO-RECICLADOR" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm">
+                <MessageCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>

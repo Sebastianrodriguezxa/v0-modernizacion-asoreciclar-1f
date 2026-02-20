@@ -93,6 +93,12 @@
 /* Smooth scroll for anchor navigation */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Anchor offset for fixed navbar */
+[id] {
+  scroll-margin-top: 80px;
 }
 
 /* Ensure links and interactive elements are always tappable on mobile */

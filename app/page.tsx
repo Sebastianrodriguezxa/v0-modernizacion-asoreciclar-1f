@@ -9,6 +9,7 @@ import { Transparencia } from "@/components/transparencia"
 import { Manifiesto } from "@/components/manifiesto"
 import { Contacto } from "@/components/contacto"
 import { Footer } from "@/components/footer"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <Manifiesto />
       <Contacto />
       <Footer />
+      <WhatsAppButton />
     </main>
   )
 }
