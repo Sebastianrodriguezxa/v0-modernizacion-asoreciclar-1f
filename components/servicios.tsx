@@ -85,7 +85,7 @@ export function Servicios() {
         </div>
 
         {/* Services grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, i) => (
             <div
               key={service.title}
@@ -116,10 +116,10 @@ export function Servicios() {
               </div>
 
               {/* Link */}
-              <div className="flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all duration-300">
+              <a href="#contacto" className="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all duration-300">
                 <span>Conocer mas</span>
                 <ArrowRight className="h-4 w-4" />
-              </div>
+              </a>
             </div>
           ))}
         </div>

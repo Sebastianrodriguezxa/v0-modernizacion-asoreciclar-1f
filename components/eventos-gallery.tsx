@@ -42,9 +42,13 @@ export function EventosGallery() {
         if (res.ok) {
           const data = await res.json()
           setEventos(data.eventos || [])
+        } else {
+          // API failed (possibly no DB), silently fallback
+          setEventos([])
         }
-      } catch (err) {
-        console.error("Error fetching eventos:", err)
+      } catch {
+        // Network or DB error, silently fallback
+        setEventos([])
       } finally {
         setLoading(false)
       }

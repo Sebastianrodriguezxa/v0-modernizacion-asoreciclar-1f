@@ -2,7 +2,11 @@
 
 import { useRef, useState } from "react"
 import { useInView } from "@/hooks/use-in-view"
-import { Send, MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react"
+import { Send, MapPin, Phone, Mail, Clock, CheckCircle, MessageCircle } from "lucide-react"
+
+const WHATSAPP_NUMBER = "573005312462"
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hola%2C%20me%20gustaria%20obtener%20mas%20informacion%20sobre%20ASO-RECICLADOR`
+const CONTACT_EMAIL = "pqrs@asorecicladoresp.com"
 
 export function Contacto() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -35,6 +39,20 @@ export function Contacto() {
       return
     }
 
+    // Build mailto link with form data
+    const nombre = formData.get("nombre") as string
+    const email = formData.get("email") as string
+    const telefono = formData.get("telefono") as string
+    const perfil = formData.get("perfil") as string
+    const mensaje = formData.get("mensaje") as string
+
+    const subject = encodeURIComponent(`Contacto web - ${nombre}`)
+    const body = encodeURIComponent(
+      `Nombre: ${nombre}\nEmail: ${email}\nTelefono: ${telefono}\nPerfil: ${perfil || "No especificado"}\n\nMensaje:\n${mensaje}`
+    )
+    
+    window.open(`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`, "_self")
+
     setErrors({})
     setSubmitted(true)
   }
@@ -57,13 +75,18 @@ export function Contacto() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Contact info */}
           <div className={`lg:col-span-2 transition-all duration-1000 delay-200 ${isVisible ? "animate-slide-in-left" : "opacity-0"}`}>
-            <div className="flex flex-col gap-6">
-              <div className="p-6 bg-card rounded-2xl border border-border shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl">
+            <div className="flex flex-col gap-4 sm:gap-6">
+              <a
+                href="https://www.google.com/maps/search/Cr+43+%23+27+-+103+Monteria+Cordoba+Colombia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-5 sm:p-6 bg-card rounded-2xl border border-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl flex-shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
@@ -72,39 +95,58 @@ export function Contacto() {
                     <p className="text-muted-foreground text-sm">Monteria, Cordoba, Colombia</p>
                   </div>
                 </div>
-              </div>
+              </a>
 
-              <div className="p-6 bg-card rounded-2xl border border-border shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl">
+              <a
+                href="tel:+573005312462"
+                className="block p-5 sm:p-6 bg-card rounded-2xl border border-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl flex-shrink-0">
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Telefono</h4>
-                    <a href="tel:+573005312462" className="text-muted-foreground text-sm hover:text-primary transition-colors select-text">
-                      <span>300 531 2462</span>
-                    </a>
+                    <span className="text-muted-foreground text-sm select-text">300 531 2462</span>
                   </div>
                 </div>
-              </div>
+              </a>
 
-              <div className="p-6 bg-card rounded-2xl border border-border shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="block p-5 sm:p-6 bg-card rounded-2xl border border-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-xl flex-shrink-0">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground">Email / PQRS</h4>
-                    <a href="mailto:pqrs@asorecicladoresp.com" className="text-muted-foreground text-sm hover:text-primary transition-colors select-text">
-                      <span>pqrs@asorecicladoresp.com</span>
-                    </a>
+                    <span className="text-muted-foreground text-sm select-text">{CONTACT_EMAIL}</span>
                   </div>
                 </div>
-              </div>
+              </a>
 
-              <div className="p-6 bg-card rounded-2xl border border-border shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-amber-warm/10 rounded-xl">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-5 sm:p-6 bg-card rounded-2xl border border-border shadow-sm hover:border-green-500/30 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-green-500/10 rounded-xl flex-shrink-0">
+                    <MessageCircle className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground">WhatsApp</h4>
+                    <span className="text-muted-foreground text-sm">Escribenos directamente</span>
+                  </div>
+                </div>
+              </a>
+
+              <div className="p-5 sm:p-6 bg-card rounded-2xl border border-border shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-amber-warm/10 rounded-xl flex-shrink-0">
                     <Clock className="h-6 w-6 text-amber-warm" />
                   </div>
                   <div>
@@ -136,7 +178,7 @@ export function Contacto() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="p-8 lg:p-10 bg-card rounded-3xl border border-border shadow-lg" noValidate>
+              <form onSubmit={handleSubmit} className="p-5 sm:p-8 lg:p-10 bg-card rounded-2xl sm:rounded-3xl border border-border shadow-lg" noValidate>
                 <div className="grid sm:grid-cols-2 gap-6 mb-6">
                   {/* Nombre */}
                   <div>

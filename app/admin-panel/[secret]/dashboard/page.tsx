@@ -88,21 +88,21 @@ export default function DashboardPage() {
     <AdminShell>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
           <div>
-            <h1 className="font-serif text-3xl font-bold text-foreground">
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
               Dashboard
             </h1>
-            <p className="text-muted-foreground mt-1">
+            <p className="text-muted-foreground text-sm sm:text-base mt-1">
               Resumen general de eventos y contenido
             </p>
           </div>
           <a
             href={`/admin-panel/${secret}/eventos/nuevo`}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-green-mid transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-green-mid transition-colors self-start sm:self-auto flex-shrink-0"
           >
             <Plus className="h-4 w-4" />
-            <span className="hidden sm:inline">Nuevo Evento</span>
+            <span>Nuevo Evento</span>
           </a>
         </div>
 

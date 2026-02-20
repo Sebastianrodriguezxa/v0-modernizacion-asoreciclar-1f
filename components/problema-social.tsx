@@ -77,19 +77,19 @@ export function ProblemaSocial() {
           </div>
 
           {/* Right: Stats grid */}
-          <div className={`grid grid-cols-2 gap-5 transition-all duration-1000 delay-300 ${isVisible ? "animate-slide-in-right" : "opacity-0"}`}>
+          <div className={`grid grid-cols-2 gap-3 sm:gap-5 transition-all duration-1000 delay-300 ${isVisible ? "animate-slide-in-right" : "opacity-0"}`}>
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className="relative p-6 bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-2xl group hover:bg-primary-foreground/10 transition-all duration-500"
+                className="relative p-4 sm:p-6 bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-2xl group hover:bg-primary-foreground/10 transition-all duration-500"
                 style={{ animationDelay: `${400 + i * 150}ms` }}
               >
-                <stat.icon className="h-8 w-8 text-amber-warm mb-4" />
-                <span className="block font-serif text-4xl lg:text-5xl font-bold text-primary-foreground">
+                <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-amber-warm mb-3 sm:mb-4" />
+                <span className="block font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground">
                   {stat.value}
                   <span className="text-amber-warm">{stat.suffix}</span>
                 </span>
-                <span className="block text-primary-foreground/60 text-sm mt-2 leading-snug">
+                <span className="block text-primary-foreground/60 text-xs sm:text-sm mt-2 leading-snug">
                   {stat.label}
                 </span>
               </div>

@@ -186,7 +186,7 @@ export function ResponsabilidadSocial() {
 
           {/* Program selector tabs */}
           <div
-            className={`flex flex-wrap gap-3 mb-12 transition-all duration-1000 delay-200 ${
+            className={`flex gap-2 sm:gap-3 mb-8 sm:mb-12 overflow-x-auto pb-2 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible transition-all duration-1000 delay-200 ${
               isVisible ? "animate-fade-in-up" : "opacity-0"
             }`}
           >
@@ -194,16 +194,16 @@ export function ResponsabilidadSocial() {
               <button
                 key={prog.title}
                 onClick={() => setActivePrograma(i)}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-bold transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl text-sm font-bold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
                   activePrograma === i
                     ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                     : "bg-card border border-border text-foreground hover:border-primary/30 hover:bg-primary/5"
                 }`}
               >
-                <prog.icon className="h-4 w-4" />
+                <prog.icon className="h-4 w-4 flex-shrink-0" />
                 <span className="hidden sm:inline">{prog.title}</span>
                 <span className="sm:hidden">
-                  {prog.title.split(" ")[0]}
+                  {prog.title.split(" ").slice(0, 2).join(" ")}
                 </span>
               </button>
             ))}

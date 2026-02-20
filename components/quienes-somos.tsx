@@ -66,9 +66,9 @@ export function QuienesSomos() {
               <div className="absolute inset-0 bg-gradient-to-t from-green-dark/40 to-transparent" />
             </div>
             {/* Overlapping card */}
-            <div className="absolute -bottom-8 -right-4 lg:-right-8 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl max-w-xs">
-              <span className="block font-serif text-4xl font-bold text-amber-warm">2017</span>
-              <span className="block text-primary-foreground/80 text-sm mt-1">
+            <div className="absolute -bottom-6 right-2 sm:-bottom-8 sm:-right-4 lg:-right-8 bg-primary text-primary-foreground p-4 sm:p-6 rounded-2xl shadow-xl max-w-[200px] sm:max-w-xs">
+              <span className="block font-serif text-3xl sm:text-4xl font-bold text-amber-warm">2017</span>
+              <span className="block text-primary-foreground/80 text-xs sm:text-sm mt-1">
                 Fundada en Monteria, Cordoba, al servicio de la comunidad recicladora
               </span>
             </div>

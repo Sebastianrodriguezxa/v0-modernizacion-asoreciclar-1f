@@ -24,7 +24,9 @@ export function Hero() {
   const heroRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    setIsVisible(true)
+    // Small delay to trigger the animation after mount
+    const t = setTimeout(() => setIsVisible(true), 50)
+    return () => clearTimeout(t)
   }, [])
 
   return (
@@ -69,7 +71,7 @@ export function Hero() {
               </div>
 
               <h1
-                className={`font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-primary-foreground leading-[0.9] tracking-tight mb-6 transition-all duration-1000 delay-200 ${
+                className={`font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-primary-foreground leading-[0.9] tracking-tight mb-6 transition-all duration-1000 delay-200 ${
                   isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
                 }`}
               >
@@ -88,20 +90,20 @@ export function Hero() {
               </p>
 
               <div
-                className={`flex flex-wrap gap-4 mb-12 transition-all duration-1000 delay-500 ${
+                className={`flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12 transition-all duration-1000 delay-500 ${
                   isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
                 }`}
               >
                 <a
                   href="#nosotros"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-amber-warm text-green-dark font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-amber-warm/25 transition-all duration-300 hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-amber-warm text-green-dark font-bold text-base sm:text-lg rounded-2xl hover:shadow-2xl hover:shadow-amber-warm/25 transition-all duration-300 hover:-translate-y-0.5"
                 >
                   Conoce nuestra historia
                   <ArrowDown className="h-5 w-5" />
                 </a>
                 <a
                   href="#servicios"
-                  className="inline-flex items-center gap-3 px-8 py-4 border-2 border-primary-foreground/30 text-primary-foreground font-bold text-lg rounded-2xl hover:bg-primary-foreground/10 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 border-2 border-primary-foreground/30 text-primary-foreground font-bold text-base sm:text-lg rounded-2xl hover:bg-primary-foreground/10 transition-all duration-300"
                 >
                   Nuestros servicios
                 </a>
