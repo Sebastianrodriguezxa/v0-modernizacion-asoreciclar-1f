@@ -5,6 +5,18 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "asorecicladoresp.com",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.asorecicladoresp.com",
+        pathname: "/uploads/**",
+      },
+    ],
   },
 }
 

@@ -17,6 +17,7 @@ import {
   Baby,
   Sparkles,
 } from "lucide-react"
+import { EventosGallery } from "@/components/eventos-gallery"
 
 const programas = [
   {
@@ -297,7 +298,10 @@ export function ResponsabilidadSocial() {
         </div>
       </div>
 
-      {/* ===== PART 3: Testimonios de recicladores ===== */}
+      {/* ===== PART 3: Dynamic Events Gallery ===== */}
+      <EventosGallery />
+
+      {/* ===== PART 4: Testimonios de recicladores ===== */}
       <div className="relative py-24 lg:py-32 bg-green-dark overflow-hidden">
         {/* Decorative rings */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-primary-foreground/5 rounded-full" />
