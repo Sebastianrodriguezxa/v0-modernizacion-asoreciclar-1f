@@ -42,17 +42,17 @@ export function Footer() {
               Organizacion gremial de recicladores de oficio. Dignificamos el reciclaje y transformamos vidas en la region caribe colombiana desde 2017.
             </p>
             <div className="flex flex-col gap-3">
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm">
+              <a href="https://www.google.com/maps/search/Cr+43+%23+27+-+103+Monteria+Cordoba+Colombia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm select-text">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
-                Cr 43 # 27 - 103, Monteria, Cordoba
+                <span>Cr 43 # 27 - 103, Monteria, Cordoba</span>
               </a>
-              <a href="tel:3005312462" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm">
+              <a href="tel:+573005312462" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm select-text">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                300 531 2462
+                <span>300 531 2462</span>
               </a>
-              <a href="mailto:pqrs@asorecicladoresp.com" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm">
+              <a href="mailto:pqrs@asorecicladoresp.com" className="flex items-center gap-3 text-card/60 hover:text-amber-warm transition-colors text-sm select-text">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                pqrs@asorecicladoresp.com
+                <span>pqrs@asorecicladoresp.com</span>
               </a>
             </div>
           </div>

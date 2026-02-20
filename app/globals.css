@@ -95,6 +95,35 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ensure links and interactive elements are always tappable on mobile */
+a, button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+}
+
+/* Ensure phone numbers and emails are selectable */
+a[href^="tel:"],
+a[href^="mailto:"] {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Prevent text from overlapping on small screens */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Fix iOS input zoom */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
 /* Animated counter keyframes */
 @keyframes fadeInUp {
   from {

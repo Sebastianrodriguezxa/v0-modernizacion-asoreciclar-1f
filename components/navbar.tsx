@@ -25,21 +25,23 @@ export function Navbar() {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="hidden lg:block bg-green-dark text-primary-foreground">
+      {/* Top bar - fixed on desktop */}
+      <div className={`hidden lg:block fixed top-0 left-0 right-0 z-[60] bg-green-dark text-primary-foreground transition-all duration-500 ${
+        scrolled ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+      }`}>
         <div className="mx-auto max-w-7xl px-6 py-2 flex items-center justify-between text-sm">
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2">
-              <MapPin className="h-3.5 w-3.5" />
+            <span className="flex items-center gap-2 select-text">
+              <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
               Cr 43 # 27 - 103, Monteria
             </span>
-            <a href="tel:3005312462" className="flex items-center gap-2 hover:text-amber-warm transition-colors">
-              <Phone className="h-3.5 w-3.5" />
-              300 531 2462
+            <a href="tel:+573005312462" className="flex items-center gap-2 hover:text-amber-warm transition-colors select-text">
+              <Phone className="h-3.5 w-3.5 flex-shrink-0" />
+              <span>300 531 2462</span>
             </a>
-            <a href="mailto:pqrs@asorecicladoresp.com" className="flex items-center gap-2 hover:text-amber-warm transition-colors">
-              <Mail className="h-3.5 w-3.5" />
-              pqrs@asorecicladoresp.com
+            <a href="mailto:pqrs@asorecicladoresp.com" className="flex items-center gap-2 hover:text-amber-warm transition-colors select-text">
+              <Mail className="h-3.5 w-3.5 flex-shrink-0" />
+              <span>pqrs@asorecicladoresp.com</span>
             </a>
           </div>
           <span className="text-primary-foreground/70 text-xs tracking-wider uppercase">
@@ -50,10 +52,10 @@ export function Navbar() {
 
       {/* Main navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-green-dark/95 backdrop-blur-md shadow-xl py-3 lg:top-0"
-            : "bg-transparent py-5 lg:top-10"
+            ? "top-0 bg-green-dark/95 backdrop-blur-md shadow-xl py-3"
+            : "top-0 lg:top-[36px] bg-transparent py-5"
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
@@ -121,10 +123,10 @@ export function Navbar() {
         {/* Mobile menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ${
-            mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
-          <div className="bg-green-dark/98 backdrop-blur-lg border-t border-primary-foreground/10 px-6 py-6">
+          <div className="bg-green-dark backdrop-blur-lg border-t border-primary-foreground/10 px-6 py-6">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
@@ -138,13 +140,13 @@ export function Navbar() {
               ))}
             </div>
             <div className="mt-6 pt-6 border-t border-primary-foreground/10 flex flex-col gap-3">
-              <a href="tel:3005312462" className="flex items-center gap-3 text-primary-foreground/70 text-sm">
-                <Phone className="h-4 w-4" />
-                300 531 2462
+              <a href="tel:+573005312462" className="flex items-center gap-3 text-primary-foreground/70 text-sm select-text active:text-amber-warm">
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <span>300 531 2462</span>
               </a>
-              <a href="mailto:pqrs@asorecicladoresp.com" className="flex items-center gap-3 text-primary-foreground/70 text-sm">
-                <Mail className="h-4 w-4" />
-                pqrs@asorecicladoresp.com
+              <a href="mailto:pqrs@asorecicladoresp.com" className="flex items-center gap-3 text-primary-foreground/70 text-sm select-text active:text-amber-warm">
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <span>pqrs@asorecicladoresp.com</span>
               </a>
               <a
                 href="#contacto"
